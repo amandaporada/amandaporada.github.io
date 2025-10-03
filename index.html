@@ -4,15 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Amanda Porada — Resume</title>
-  <meta name="description" content="Resume and portfolio of Amanda Porada: skills, experience, projects, education, and contact info." />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="description" content="Resume and portfolio of Amanda Porada: skills, experience, projects, education." />
+  <meta name="theme-color" content="#ec4899" />
+
   <!-- Open Graph -->
   <meta property="og:title" content="Amanda Porada — Resume" />
-  <meta property="og:description" content="Skills, experience, projects, education, and contact info." />
+  <meta property="og:description" content="Skills, experience, projects, and education." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
+
+  <!-- Google Fonts: Quicksand -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -20,8 +24,8 @@
       --panel: #0f172a; /* slate-900 */
       --text: #e5e7eb; /* gray-200 */
       --muted: #9ca3af; /* gray-400 */
-      --brand: #22d3ee; /* cyan-400 */
-      --brand-600: #0891b2; /* cyan-700-ish */
+      --brand: #ec4899; /* pink-500 */
+      --brand-600: #be185d; /* pink-700 */
       --chip: #111827; /* gray-900 */
       --border: #1f2937; /* gray-800 */
       --shadow: 0 8px 30px rgba(0,0,0,.35);
@@ -32,8 +36,8 @@
         --panel: #ffffff;
         --text: #0f172a; /* slate-900 */
         --muted: #475569; /* slate-600 */
-        --brand: #0ea5e9; /* sky-500 */
-        --brand-600: #0369a1;
+        --brand: #ec4899; /* pink-500 */
+        --brand-600: #be185d;
         --chip: #f1f5f9; /* slate-100 */
         --border: #e2e8f0; /* slate-200 */
         --shadow: 0 10px 25px rgba(2, 6, 23, .08);
@@ -42,13 +46,23 @@
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;}
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 80% -10%, rgba(34,211,238,.10), transparent 60%), var(--bg);
+      font-family: 'Quicksand', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(236,72,153,.10), transparent 60%), var(--bg);
       color: var(--text);
       line-height:1.65;
     }
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
+
+    /* Top banner */
+    .top-banner{
+      background: linear-gradient(180deg, color-mix(in oklab, var(--brand), #fff 10%), var(--brand-600));
+      color: white;
+      text-align:center;
+      font-weight:700;
+      letter-spacing:.06em;
+      padding:8px 12px;
+    }
 
     /* Layout */
     .container{max-width:1000px;margin:auto;padding:24px}
@@ -62,12 +76,16 @@
       display:flex;align-items:center;justify-content:space-between;gap:16px;
       max-width:1000px;margin:auto;padding:12px 24px;
     }
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand .avatar{
-      width:40px;height:40px;border-radius:50%;
-      background:linear-gradient(135deg, var(--brand), transparent);
-      border:2px solid color-mix(in oklab, var(--brand), #ffffff 20%);
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      font-weight:700;
+    }
+    /* real photo beside the name */
+    .headshot{
+      width:44px;height:44px;object-fit:cover;border-radius:50%;
       box-shadow:var(--shadow);
+      border:2px solid color-mix(in oklab, var(--brand), #ffffff 20%);
+      background: #222;
     }
     nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
     nav a{font-weight:600;color:var(--text)}
@@ -82,12 +100,11 @@
     .chip{padding:6px 10px;border-radius:999px;background:var(--chip);border:1px solid var(--border);font-size:.92rem}
 
     section{padding:20px 0}
-    h1{font-size:clamp(28px, 2.6vw + 10px, 44px);line-height:1.2;margin:0}
+    h1{font-size:clamp(28px, 2.6vw + 10px, 44px);line-height:1.2;margin:0;font-weight:700}
     h2{font-size:clamp(22px, 1.4vw + 10px, 28px);margin:0 0 8px}
     h3{margin:.4rem 0 .2rem;font-size:1.05rem}
     .muted{color:var(--muted)}
     .grid{display:grid;gap:18px}
-
     .two{grid-template-columns:repeat(2,1fr)}
     .three{grid-template-columns:repeat(3,1fr)}
 
@@ -107,9 +124,18 @@
     /* Footer */
     footer{border-top:1px solid var(--border);margin-top:28px}
 
+    /* Visually hidden (for skip link) */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
     /* Print */
     @media print{
-      header, .actions, .contact-actions {display:none !important}
+      .top-banner, header .nav, .actions {display:none !important}
       body{background:white}
       .card{box-shadow:none;border:1px solid #ddd}
       a{text-decoration:none;color:black}
@@ -117,12 +143,17 @@
   </style>
 </head>
 <body>
+  <!-- Top banner with project name -->
+  <div class="top-banner">CSC118 PROJECT</div>
+
   <!-- Accessible skip link -->
   <a href="#main" class="visually-hidden">Skip to content</a>
 
   <header>
     <div class="nav">
       <div class="brand">
+        <!-- Photo next to name (top-left) -->
+        <img src="website picture.png" alt="Photo of Amanda" class="headshot" />
         <span>Amanda Porada</span>
       </div>
       <nav aria-label="Primary">
@@ -132,30 +163,28 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="actions">
-        <button class="btn" id="themeToggle" aria-label="Toggle dark mode">🌗</button>
-        <a class="btn btn-primary" href="#contact">Hire Me</a>
+        <a class="btn btn-primary" href="#" onclick="window.print();return false;">⬇️ Download / Print PDF</a>
       </div>
     </div>
   </header>
 
   <main id="main" class="container">
-    <img src="website picture.png" alt="">
     <section class="hero">
       <div class="card">
-        <h1>Hi, I’m <span style="color:var(--brand)">Amanda Porada</span> 👋</h1>
-        <p class="muted">Coral Gables, FL · <a href="mailto:amandaporada19@gmail.com">amandaporada19@gmail.com</a> · (609) 273‑7023</p>
+        <!-- Professionalized header -->
+        <h1>Professional Profile — <span style="color:var(--brand)">Amanda Porada</span></h1>
+        <p class="muted">Coral Gables, FL</p>
         <p>
-          I’m a junior at the University of Miami pursuing dual B.S. degrees in Health Sciences (Pre‑Occupational Therapy) and Psychology with a Biology minor. My passion is helping children and adults with developmental disabilities through inclusive, client‑centered care.
+          I’m a junior at the University of Miami pursuing dual B.S. degrees in Health Sciences (Pre-Occupational Therapy) and Psychology with a Biology minor. My passion is helping children and adults with developmental disabilities through inclusive, client-centered care.
         </p>
         <p>
           Achievements include maintaining a 3.945 GPA on the Dean’s List, serving as a leader at Camp ROBIN, tutoring peers in science and psychology, and working as an Ignite Fellow with Teach For America. I’m committed to a future as a NICU occupational therapist and to creating a clinic that supports neurodiverse children.
         </p>
         <div class="chips" aria-label="Core skills">
-          <span class="chip">Occupational Therapy (Pre‑OT)</span>
+          <span class="chip">Occupational Therapy (Pre-OT)</span>
           <span class="chip">Child &amp; Adolescent Development</span>
           <span class="chip">Special Needs Support</span>
           <span class="chip">Behavior Management</span>
@@ -163,7 +192,6 @@
           <span class="chip">Research &amp; Data Analysis</span>
         </div>
         <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="#" onclick="window.print();return false;">⬇️ Download / Print PDF</a>
           <a class="btn" href="#projects">View Projects →</a>
         </div>
       </div>
@@ -270,7 +298,7 @@
       <h2>Education</h2>
       <div class="timeline">
         <article class="item">
-          <h3>B.S. Health Sciences (Pre‑Occupational Therapy) &amp; B.S. Psychology — University of Miami</h3>
+          <h3>B.S. Health Sciences (Pre-Occupational Therapy) &amp; B.S. Psychology — University of Miami</h3>
           <div class="meta"><span>Dec 2026 (Expected)</span> · <span>Coral Gables, FL</span></div>
           <p>Minor in Biology · GPA: 3.945</p>
           <p class="muted">Relevant Coursework: Child &amp; Adolescent Development; Intermediate Research Methods &amp; Statistics</p>
@@ -281,34 +309,11 @@
     <section id="about" class="card">
       <h2>About</h2>
       <p>
-        I’m a University of Miami junior pursuing dual B.S. degrees in Health Sciences (Pre‑Occupational Therapy) and Psychology with a Biology minor. I thrive in inclusive, client-centered environments and enjoy supporting children and adults with developmental disabilities.
+        I’m a University of Miami junior pursuing dual B.S. degrees in Health Sciences (Pre-Occupational Therapy) and Psychology with a Biology minor. I thrive in inclusive, client-centered environments and enjoy supporting children and adults with developmental disabilities.
       </p>
       <p>
         I’m currently growing my impact through leadership at Camp ROBIN, tutoring with Teach For America’s Ignite Fellowship, and peer tutoring on campus. I’m seeking opportunities to deepen clinical exposure and continue supporting neurodiverse communities.
       </p>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p class="muted">Prefer email? <a href="mailto:amandaporada19@gmail.com">amandaporada19@gmail.com</a></p>
-      <form class="grid two" name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact" />
-        <p>
-          <label for="name">Name</label><br>
-          <input id="name" name="name" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)" />
-        </p>
-        <p>
-          <label for="email">Email</label><br>
-          <input id="email" name="email" type="email" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)" />
-        </p>
-        <p style="grid-column:1/-1">
-          <label for="msg">Message</label><br>
-          <textarea id="msg" name="message" rows="5" required style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)"></textarea>
-        </p>
-        <p class="contact-actions" style="grid-column:1/-1">
-          <button class="btn btn-primary" type="submit">Send Message</button>
-        </p>
-      </form>
     </section>
 
     <footer class="container" role="contentinfo">
@@ -326,35 +331,17 @@
       window.scrollTo({top:0,behavior:'smooth'});
     });
 
-    // Theme toggle (respects system preference + persists)
-    const themeBtn = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    const stored = localStorage.getItem('theme');
-    if(stored) document.documentElement.dataset.theme = stored;
-    function applyTheme(){
-      const t = document.documentElement.dataset.theme;
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', t==='light' ? '#0ea5e9' : '#22d3ee');
-    }
-    themeBtn?.addEventListener('click', ()=>{
-      const current = document.documentElement.dataset.theme || (prefersDark.matches ? 'dark' : 'light');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem('theme', next);
-      applyTheme();
-    });
-    applyTheme();
+    // Ensure theme-color stays pink
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ec4899');
   </script>
 
-  <!-- Schema.org Person JSON-LD for better SEO (fill in your details) -->
+  <!-- Schema.org Person JSON-LD (no contact details) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Amanda Porada",
-    "jobTitle": "Health Sciences & Psychology Student (Pre‑OT)",
-    "url": "",
-    "email": "mailto:amandaporada19@gmail.com",
-    "telephone": "+1-609-273-7023",
+    "jobTitle": "Health Sciences & Psychology Student (Pre-OT)",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Coral Gables",
