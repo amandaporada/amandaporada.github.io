@@ -20,39 +20,44 @@
 
   <style>
     :root{
-      --bg: #0b1220; /* dark 900 */
-      --panel: #0f172a; /* slate-900 */
-      --text: #e5e7eb; /* gray-200 */
-      --muted: #9ca3af; /* gray-400 */
-      --brand: #ec4899; /* pink-500 */
-      --brand-600: #be185d; /* pink-700 */
-      --chip: #111827; /* gray-900 */
-      --border: #1f2937; /* gray-800 */
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --brand: #ec4899;
+      --brand-600: #be185d;
+      --chip: #111827;
+      --border: #1f2937;
       --shadow: 0 8px 30px rgba(0,0,0,.35);
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg: #f8fafc; /* slate-50 */
+        --bg: #f8fafc;
         --panel: #ffffff;
-        --text: #0f172a; /* slate-900 */
-        --muted: #475569; /* slate-600 */
-        --brand: #ec4899; /* pink-500 */
+        --text: #0f172a;
+        --muted: #475569;
+        --brand: #ec4899;
         --brand-600: #be185d;
-        --chip: #f1f5f9; /* slate-100 */
-        --border: #e2e8f0; /* slate-200 */
+        --chip: #f1f5f9;
+        --border: #e2e8f0;
         --shadow: 0 10px 25px rgba(2, 6, 23, .08);
       }
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;}
     body{
-      font-family: 'Quicksand', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: 'Quicksand', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background: radial-gradient(1200px 600px at 80% -10%, rgba(236,72,153,.10), transparent 60%), var(--bg);
       color: var(--text);
       line-height:1.65;
     }
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
+
+    /* Headings in Times New Roman */
+    h1, h2, h3 {
+      font-family: "Times New Roman", Times, serif;
+    }
 
     /* Top banner */
     .top-banner{
@@ -64,7 +69,6 @@
       padding:8px 12px;
     }
 
-    /* Layout */
     .container{max-width:1000px;margin:auto;padding:24px}
     header{
       position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);
@@ -80,12 +84,10 @@
       display:flex;align-items:center;gap:12px;
       font-weight:700;
     }
-    /* real photo beside the name */
     .headshot{
       width:44px;height:44px;object-fit:cover;border-radius:50%;
       box-shadow:var(--shadow);
       border:2px solid color-mix(in oklab, var(--brand), #ffffff 20%);
-      background: #222;
     }
     nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
     nav a{font-weight:600;color:var(--text)}
@@ -114,17 +116,14 @@
       nav ul{display:none}
     }
 
-    /* Timeline */
     .timeline{position:relative;padding-left:22px}
     .timeline:before{content:"";position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:var(--border)}
     .item{position:relative;padding-left:12px;margin:8px 0}
     .item:before{content:"";position:absolute;left:-2px;top:.45rem;width:10px;height:10px;border-radius:50%;background:var(--brand)}
     .item .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
 
-    /* Footer */
     footer{border-top:1px solid var(--border);margin-top:28px}
 
-    /* Visually hidden (for skip link) */
     .visually-hidden {
       position: absolute !important;
       height: 1px; width: 1px;
@@ -133,7 +132,6 @@
       white-space: nowrap;
     }
 
-    /* Print */
     @media print{
       .top-banner, header .nav, .actions {display:none !important}
       body{background:white}
@@ -143,16 +141,13 @@
   </style>
 </head>
 <body>
-  <!-- Top banner with project name -->
   <div class="top-banner">CSC118 PROJECT</div>
 
-  <!-- Accessible skip link -->
   <a href="#main" class="visually-hidden">Skip to content</a>
 
   <header>
     <div class="nav">
       <div class="brand">
-        <!-- Photo next to name (top-left) -->
         <img src="website picture.png" alt="Photo of Amanda" class="headshot" />
         <span>Amanda Porada</span>
       </div>
@@ -174,15 +169,10 @@
   <main id="main" class="container">
     <section class="hero">
       <div class="card">
-        <!-- Professionalized header -->
         <h1>Professional Profile — <span style="color:var(--brand)">Amanda Porada</span></h1>
         <p class="muted">Coral Gables, FL</p>
-        <p>
-          I’m a junior at the University of Miami pursuing dual B.S. degrees in Health Sciences (Pre-Occupational Therapy) and Psychology with a Biology minor. My passion is helping children and adults with developmental disabilities through inclusive, client-centered care.
-        </p>
-        <p>
-          Achievements include maintaining a 3.945 GPA on the Dean’s List, serving as a leader at Camp ROBIN, tutoring peers in science and psychology, and working as an Ignite Fellow with Teach For America. I’m committed to a future as a NICU occupational therapist and to creating a clinic that supports neurodiverse children.
-        </p>
+        <p>I’m a junior at the University of Miami pursuing dual B.S. degrees in Health Sciences (Pre-Occupational Therapy) and Psychology with a Biology minor. My passion is helping children and adults with developmental disabilities through inclusive, client-centered care.</p>
+        <p>Achievements include maintaining a 3.945 GPA on the Dean’s List, serving as a leader at Camp ROBIN, tutoring peers in science and psychology, and working as an Ignite Fellow with Teach For America. I’m committed to a future as a NICU occupational therapist and to creating a clinic that supports neurodiverse children.</p>
         <div class="chips" aria-label="Core skills">
           <span class="chip">Occupational Therapy (Pre-OT)</span>
           <span class="chip">Child &amp; Adolescent Development</span>
@@ -213,37 +203,33 @@
           <h3>Leader — Camp ROBIN</h3>
           <div class="meta"><span>2021 – Present</span> · <span>Old Bridge, NJ</span> · <span>Seasonal</span></div>
           <ul>
-            <li>Facilitated an inclusive environment for children and adults with special needs, guiding small groups during field trips and activities to promote social interaction and participation.</li>
-            <li>Supported campers requiring individualized attention using behavior management strategies to enhance enjoyment of the summer camp environment.</li>
+            <li>Facilitated an inclusive environment for children and adults with special needs...</li>
+            <li>Supported campers requiring individualized attention using behavior management strategies.</li>
           </ul>
-          <div class="chips"><span class="chip">Inclusion</span><span class="chip">Behavior Strategies</span></div>
         </article>
         <article class="item">
           <h3>Ignite Fellow — Teach For America</h3>
           <div class="meta"><span>Sep 2024 – Present</span> · <span>Virtual</span></div>
           <ul>
-            <li>Tutored underprivileged elementary school students in math via Zoom, leading engaging lessons to strengthen classroom skills.</li>
+            <li>Tutored underprivileged elementary school students in math via Zoom.</li>
             <li>Fostered confidence and academic growth in personalized learning environments.</li>
           </ul>
-          <div class="chips"><span class="chip">Tutoring</span><span class="chip">Elementary Math</span></div>
         </article>
         <article class="item">
           <h3>Peer Tutor — Camner Tutoring Center</h3>
           <div class="meta"><span>Nov 2024 – Present</span> · <span>Coral Gables, FL</span></div>
           <ul>
-            <li>Mentored peers in Biology, Psychology, and Statistics, providing individualized support and helping students prepare for exams.</li>
+            <li>Mentored peers in Biology, Psychology, and Statistics.</li>
           </ul>
-          <div class="chips"><span class="chip">Biology</span><span class="chip">Psychology</span><span class="chip">Statistics</span></div>
         </article>
         <article class="item">
           <h3>Shift Lead — Playa Bowls</h3>
           <div class="meta"><span>Sep 2022 – Jan 2025</span> · <span>Princeton, NJ</span></div>
           <ul>
-            <li>Delegated responsibilities and oversaw team performance to ensure shift preparedness and efficiency.</li>
-            <li>Delivered exceptional customer service and resolved concerns to ensure a positive experience.</li>
-            <li>Handled cash transactions, maintaining accurate accounting at opening and close.</li>
+            <li>Delegated responsibilities and oversaw team performance.</li>
+            <li>Delivered exceptional customer service and resolved concerns.</li>
+            <li>Handled cash transactions, maintaining accurate accounting.</li>
           </ul>
-          <div class="chips"><span class="chip">Team Lead</span><span class="chip">Customer Service</span></div>
         </article>
       </div>
     </section>
@@ -268,8 +254,8 @@
         <div>
           <h3>Technical</h3>
           <ul>
-            <li>Microsoft Office (Word, Excel, PowerPoint)</li>
-            <li>Google Suite (Docs, Sheets, Slides)</li>
+            <li>Microsoft Office</li>
+            <li>Google Suite</li>
           </ul>
         </div>
         <div>
@@ -298,7 +284,7 @@
       <h2>Education</h2>
       <div class="timeline">
         <article class="item">
-          <h3>B.S. Health Sciences (Pre-Occupational Therapy) &amp; B.S. Psychology — University of Miami</h3>
+          <h3>B.S. Health Sciences (Pre-OT) &amp; B.S. Psychology — University of Miami</h3>
           <div class="meta"><span>Dec 2026 (Expected)</span> · <span>Coral Gables, FL</span></div>
           <p>Minor in Biology · GPA: 3.945</p>
           <p class="muted">Relevant Coursework: Child &amp; Adolescent Development; Intermediate Research Methods &amp; Statistics</p>
@@ -308,12 +294,8 @@
 
     <section id="about" class="card">
       <h2>About</h2>
-      <p>
-        I’m a University of Miami junior pursuing dual B.S. degrees in Health Sciences (Pre-Occupational Therapy) and Psychology with a Biology minor. I thrive in inclusive, client-centered environments and enjoy supporting children and adults with developmental disabilities.
-      </p>
-      <p>
-        I’m currently growing my impact through leadership at Camp ROBIN, tutoring with Teach For America’s Ignite Fellowship, and peer tutoring on campus. I’m seeking opportunities to deepen clinical exposure and continue supporting neurodiverse communities.
-      </p>
+      <p>I’m a University of Miami junior pursuing dual B.S. degrees in Health Sciences (Pre-OT) and Psychology with a Biology minor. I thrive in inclusive, client-centered environments and enjoy supporting children and adults with developmental disabilities.</p>
+      <p>I’m currently growing my impact through leadership at Camp ROBIN, tutoring with Teach For America’s Ignite Fellowship, and peer tutoring on campus.</p>
     </section>
 
     <footer class="container" role="contentinfo">
@@ -322,35 +304,12 @@
   </main>
 
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll for back-to-top
     document.getElementById('toTop').addEventListener('click', (e)=>{
       e.preventDefault();
       window.scrollTo({top:0,behavior:'smooth'});
     });
-
-    // Ensure theme-color stays pink
     document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ec4899');
-  </script>
-
-  <!-- Schema.org Person JSON-LD (no contact details) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Amanda Porada",
-    "jobTitle": "Health Sciences & Psychology Student (Pre-OT)",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Coral Gables",
-      "addressRegion": "FL",
-      "addressCountry": "US"
-    },
-    "affiliation": ["University of Miami", "Chi Omega — Upsilon Delta"],
-    "alumniOf": "University of Miami"
-  }
   </script>
 </body>
 </html>
